@@ -4,6 +4,7 @@ from data.users_resource import UsersResource, UsersListResource
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from data import db_session
 import api
+import os
 from data.users import User
 from data.jobs import Jobs
 from forms.user import LoginForm, RegisterForm
@@ -165,4 +166,5 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(port=8080, host='127.0.0.1')
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
