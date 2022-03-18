@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<h2 style="text-align: center">Works log</h2>
+<a class="btn btn-secondary" href="/addjob">Add job</a>
+{% for item in jobs%}
+    <h3>{{item[0]}}</h3>
+    <div class="container">
+      <div class="row head-table">
+        <div class="col">
+          Title of activity
+        </div>
+        <div class="col">
+          Team leader
+        </div>
+        <div class="col">
+          Duration
+        </div>
+        <div class="col">
+          List of collaborators
+        </div>
+        <div class="col">
+          Is finished
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col1">
+            {{item[1]}}
+        </div>
+        <div class="col col1">
+            {{item[2]}}
+        </div>
+        <div class="col col1">
+            {{item[3]}}
+        </div>
+        <div class="col col1">
+            {{item[4]}}
+        </div>
+        <div class="col col{{item[-2]}}">
+            {{item[5]}}
+        </div>
+      </div>
+    <br>
+    {% if current_user.id == item[-1] or current_user.id == 1 %}
+    <p>
+        <a class="btn btn-warning" href="/jobs/{{item[-3]}}">Edit job</a>
+        <a class="btn btn-danger" href="/jobs/{{item[-3]}}/delete">Delete job</a>
+    </p>
+    {% endif %}
+    <br>
+    </div>
+{% endfor %}
+{% endif %}
+{% endblock %}

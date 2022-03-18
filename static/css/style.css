@@ -1,0 +1,26 @@
+.head-table {
+    background: grey;
+    color: white;
+    text-align: center;
+}
+
+.col1 {
+    text-align: center;
+    background: #758bff;
+}
+
+.col2 {
+    text-align: center;
+    background: #ff5750;
+    color: white;
+}
+
+.col3 {
+    text-align: center;
+    background: #2ac11e;
+    color: white;
+}
+
+.menu-login {
+    float: right;
+}
